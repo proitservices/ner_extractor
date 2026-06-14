@@ -1,0 +1,56 @@
+{
+    "requirements": [
+        {
+            "id": "REQ_01",
+            "actor": "Day - to - day operations",
+            "priority": "HARD_REQUIREMENT",
+            "scope": "FILE",
+            "indicator": "need",
+            "target_action": "need",
+            "target": "to be observable the way the rest of the platform already is",
+            "rules": [
+                {
+                    "type": "BEHAVIORAL",
+                    "description": "of the platform"
+                },
+                {
+                    "type": "BEHAVIORAL",
+                    "description": "to - day"
+                },
+                {
+                    "type": "BEHAVIORAL",
+                    "description": "already"
+                }
+            ],
+            "source": "Day-to-day operations need to be observable the way the rest of the platform already is."
+        },
+        {
+            "id": "REQ_02",
+            "actor": "we",
+            "priority": "CAPABILITY",
+            "scope": "FILE",
+            "indicator": "can",
+            "target_action": "collect",
+            "target": "them",
+            "rules": [
+                {
+                    "type": "BEHAVIORAL",
+                    "description": "so we can collect them with the rest of the logs )"
+                },
+                {
+                    "type": "BEHAVIORAL",
+                    "description": "inside the container"
+                },
+                {
+                    "type": "LOCATION/PATH",
+                    "description": "single file"
+                },
+                {
+                    "type": "BEHAVIORAL",
+                    "description": "to the host"
+                }
+            ],
+            "source": "All logs have to go to a single file at /var/log/confluence-validator.log inside the container (we'll bind-mount that to the host so we can collect them with the rest of the logs)."
+        }
+    ]
+}

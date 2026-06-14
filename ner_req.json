@@ -1,0 +1,235 @@
+<|system|>
+You are an exhaustive, hallucination-proof atomic-fact extractor.
+--Instructions--
+STRICT RULES — ZERO TOLERANCE
+
+Fact template (never deviate):
+"Subject → predicate → object"
+→ exactly one " → " (space-arrow-space)
+→ Subject = concrete noun/entity from text
+→ predicate = single verb or "is"/"uses"/"requires"/"returns"/"generates"/"saves"/"counts"/"must"/"must not"
+→ object = short literal phrase — never a clause
+→ total fact ≤ 11 words
+Every word in Subject / predicate / object MUST appear verbatim in the quote.
+Deduplication = mechanical lowercase full-string match.
+Maximum new facts per turn,
+MANDATORY VISIBLE REASONING — EXACT FORMAT
+A. CLEANED & DEDUPLICATED previous facts
+→ Start with the array from "Previously identified facts and your previous reply"
+→ Remove every exact duplicate
+→ Remove every entry that contains the word "(repeated)"
+→ Output the cleaned array here (full JSON objects with "fact" and "source")
+B. Normalised list for deduplication check
+→ one line per fact from A, lower-cased full arrow string only
+C. New candidates
+For each:
+• Quote: "exact sentence(s) containing all three parts"
+• Fact: "Subject → predicate → object"
+• Normalised: "subject → predicate → object" (lower-case)
+• Proof: this exact normalised string is NOT in section B
+D. When you believe extraction is complete → run the checklist below
+GENERIC EXHAUSTIVENESS CHECKLIST (answer each line)
+Every named technology / library / language has ≥1 fact?
+Every folder / path / filename pattern has ≥1 fact?
+Every input the system accepts has ≥1 fact?
+Every output the system returns has ≥1 fact?
+Every action / operation has ≥1 fact?
+Every timing / performance requirement has ≥1 fact?
+Every uniqueness requirement has ≥1 fact?
+Every storage format has ≥1 fact?
+Every scoping rule has ≥1 fact?
+Every matching / comparison rule has ≥1 fact?
+Every aggregation step has ≥1 fact?
+Every prohibition / exclusion has ≥1 fact?
+Every stated purpose or reason has ≥1 fact?
+Every quantitative expectation has ≥1 fact?
+No remaining sentence contains an uncovered verb / requirement / constraint?
+The list in section A is now clean (no duplicates, no "(repeated)")?
+You may ONLY output the completion object when ALL 16 answers are "Yes".
+OUTPUT — pure JSON only after the full reasoning
+Normal turn:
+[{"fact":"Subject → predicate → object","source":"exact quote"}]
+Completion (only when checklist = 16×Yes):
+{"status":"complete","reliability_score":5,"total_facts":NN,"message":"Clean list + full checklist passed"}
+</|system>
+
+
+
+Project Brief: Quick Note Keeper & Search Tool
+Requires: FastAPI, Python 3.9+, standard uuid library
+The Need: Saving Notes Quickly
+Hello, I run a small service where I constantly get quick bits of information—maybe a customer's unique request, a temporary tracking number, or a brief reminder about a job. Right now, I just type these into a simple text file, but it gets messy, and I can never quickly find what I'm looking for later.
+I need a simple web service where I can send a piece of text, and the service does two things instantly: 1) It gives the note a totally unique name, like a secret code (a UUID), so I know for sure it's distinct. 2) It saves that exact note as a simple text file, using that unique code as the filename, inside a special folder called ./data. When it finishes, I need the service to tell me the unique code it used, just to confirm it saved correctly. This is my 'save' tool.
+The Need: Finding Information Fast
+The second and perhaps most critical feature is the search function. Over time, I'm going to have hundreds of these little notes. I need a way to quickly check how many times a certain word or phrase has been mentioned across all of those stored text files. For example, I might want to know how many times the word "emergency" or the phrase "delivery delay" has been written down in all my notes.
+When I run a search, I'll send the specific word or phrase I'm looking for. The service must then look inside every single text file in the ./data folder and count how many times that word or phrase appears, being careful to count it even if it's capitalized differently (it needs to be case-insensitive). Finally, it must add up all the counts from all the files and give me just one final number: the total number of times the phrase was found across everything. This will be a simple search query that gives me a count. It doesn't need to tell me which file the word was in, just the total count is enough.
+
+
+**NER system identified facts**
+"""
+{
+  "requirements": [
+    {
+      "id": "REQ_01",
+      "actor": "System",
+      "priority": "HARD_REQUIREMENT",
+      "scope": "DIRECTORY/MODULE",
+      "indicator": "require",
+      "target_action": "use",
+      "target": "Dependencies: FastAPI, Python 3.9+, standard uuid library",
+      "rules": [],
+      "source": "Requires: FastAPI, Python 3.9+, standard uuid library"
+    },
+    {
+      "id": "REQ_02",
+      "actor": "I",
+      "priority": "CAPABILITY",
+      "scope": "CLASS/COMPONENT",
+      "indicator": "can",
+      "target_action": "send",
+      "target": "a piece of text",
+      "rules": [
+        {
+          "type": "IDENTITY/NAMING",
+          "description": "like a secret code ( a UUID )"
+        },
+        {
+          "type": "TIME/LATENCY",
+          "description": "instantly"
+        },
+        {
+          "type": "BEHAVIORAL",
+          "description": "for sure"
+        }
+      ],
+      "source": "I need a simple web service where I can send a piece of text, and the service does two things instantly: 1) It gives the note a totally unique name, like a secret code (a UUID), so I know for sure it's distinct."
+    },
+    {
+      "id": "REQ_03",
+      "actor": "I",
+      "priority": "HARD_REQUIREMENT",
+      "scope": "CLASS/COMPONENT",
+      "indicator": "need",
+      "target_action": "need",
+      "target": "a simple web service where I can send a piece of text",
+      "rules": [
+        {
+          "type": "IDENTITY/NAMING",
+          "description": "like a secret code ( a UUID )"
+        },
+        {
+          "type": "TIME/LATENCY",
+          "description": "instantly"
+        },
+        {
+          "type": "BEHAVIORAL",
+          "description": "for sure"
+        }
+      ],
+      "source": "I need a simple web service where I can send a piece of text, and the service does two things instantly: 1) It gives the note a totally unique name, like a secret code (a UUID), so I know for sure it's distinct."
+    },
+    {
+      "id": "REQ_04",
+      "actor": "I",
+      "priority": "HARD_REQUIREMENT",
+      "scope": "CLASS/COMPONENT",
+      "indicator": "need",
+      "target_action": "need",
+      "target": "the service",
+      "rules": [
+        {
+          "type": "BEHAVIORAL",
+          "description": "When it finishes"
+        }
+      ],
+      "source": "When it finishes, I need the service to tell me the unique code it used, just to confirm it saved correctly."
+    },
+    {
+      "id": "REQ_05",
+      "actor": "I",
+      "priority": "HARD_REQUIREMENT",
+      "scope": "FILE",
+      "indicator": "need",
+      "target_action": "need",
+      "target": "a way to quickly check how many times a certain word or phrase has been mentioned across all of those stored text files",
+      "rules": [
+        {
+          "type": "LOCATION/PATH",
+          "description": "of those stored text files"
+        },
+        {
+          "type": "TIME/LATENCY",
+          "description": "quickly"
+        }
+      ],
+      "source": "I need a way to quickly check how many times a certain word or phrase has been mentioned across all of those stored text files."
+    },
+    {
+      "id": "REQ_06",
+      "actor": "it",
+      "priority": "HARD_REQUIREMENT",
+      "scope": "DIRECTORY/MODULE",
+      "indicator": "need",
+      "target_action": "need",
+      "target": "to be case - insensitive",
+      "rules": [
+        {
+          "type": "LOCATION/PATH",
+          "description": "in the ./data folder"
+        },
+        {
+          "type": "LOCATION/PATH",
+          "description": "text file"
+        }
+      ],
+      "source": "The service must then look inside every single text file in the ./data folder and count how many times that word or phrase appears, being careful to count it even if it's capitalized differently (it needs to be case-insensitive)."
+    },
+    {
+      "id": "REQ_07",
+      "actor": "it",
+      "priority": "HARD_REQUIREMENT",
+      "scope": "METHOD/FUNCTION",
+      "indicator": "must",
+      "target_action": "add",
+      "target": "all the counts from all the files",
+      "rules": [
+        {
+          "type": "LOCATION/PATH",
+          "description": "from all the files"
+        },
+        {
+          "type": "BEHAVIORAL",
+          "description": "of times"
+        }
+      ],
+      "source": "Finally, it must add up all the counts from all the files and give me just one final number: the total number of times the phrase was found across everything."
+    },
+    {
+      "id": "REQ_08",
+      "actor": "It",
+      "priority": "HARD_REQUIREMENT",
+      "scope": "FILE",
+      "indicator": "need",
+      "target_action": "need",
+      "target": "to tell me which file the word was in",
+      "rules": [
+        {
+          "type": "LOCATION/PATH",
+          "description": "which file"
+        },
+        {
+          "type": "BEHAVIORAL",
+          "description": "NOT need"
+        },
+        {
+          "type": "BEHAVIORAL",
+          "description": "in"
+        }
+      ],
+      "source": "It doesn't need to tell me which file the word was in, just the total count is enough."
+    }
+  ]
+}
+"""
+--- OUTPUT ----
+// provide the final facts

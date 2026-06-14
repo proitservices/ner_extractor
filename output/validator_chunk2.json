@@ -1,0 +1,28 @@
+{
+    "requirements": [
+        {
+            "id": "REQ_01",
+            "actor": "our own product teams )",
+            "priority": "HARD_REQUIREMENT",
+            "scope": "FILE",
+            "indicator": "need",
+            "target_action": "need",
+            "target": "to be able to spin up multiple replicas of this validator just by changing the replica count in the compose file \u2013 nothing fancy",
+            "rules": [
+                {
+                    "type": "LOCATION/PATH",
+                    "description": "in the compose file \u2013 nothing fancy"
+                },
+                {
+                    "type": "BEHAVIORAL",
+                    "description": "of this validator"
+                },
+                {
+                    "type": "BEHAVIORAL",
+                    "description": "actually"
+                }
+            ],
+            "source": "We'll be orchestrating everything with Docker Compose, and the customer (well, actually our own product teams) needs to be able to spin up multiple replicas of this validator just by changing the replica count in the compose file \u2013 nothing fancy, just standard Docker Compose scaling."
+        }
+    ]
+}

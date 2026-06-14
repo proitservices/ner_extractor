@@ -1,0 +1,164 @@
+{
+    "requirements": [
+        {
+            "id": "REQ_01",
+            "actor": "which",
+            "priority": "HARD_REQUIREMENT",
+            "scope": "CLASS/COMPONENT",
+            "indicator": "must",
+            "target_action": "accept",
+            "target": "a JSON payload containing a list of strings under the ' input ' key",
+            "rules": [
+                {
+                    "type": "BEHAVIORAL",
+                    "description": "of strings"
+                }
+            ],
+            "source": "The core functional requirement is the /v1/embeddings POST endpoint, which must accept a JSON payload containing a list of strings under the 'input' key."
+        },
+        {
+            "id": "REQ_02",
+            "actor": "the /health GET endpoint",
+            "priority": "HARD_REQUIREMENT",
+            "scope": "FILE",
+            "indicator": "must",
+            "target_action": "provide",
+            "target": "a simple JSON status of { \" status \" : \" ok \" } , serving as a readiness and liveness check for orchestrators",
+            "rules": [
+                {
+                    "type": "BEHAVIORAL",
+                    "description": "of { \" status \" : \" ok \" } ,"
+                },
+                {
+                    "type": "BEHAVIORAL",
+                    "description": "for orchestrators"
+                },
+                {
+                    "type": "BEHAVIORAL",
+                    "description": "Specifically"
+                }
+            ],
+            "source": "Specifically, the /health GET endpoint must provide a simple JSON status of {\"status\": \"ok\"}, serving as a readiness and liveness check for orchestrators."
+        },
+        {
+            "id": "REQ_03",
+            "actor": "the /ver GET endpoint",
+            "priority": "HARD_REQUIREMENT",
+            "scope": "DIRECTORY/MODULE",
+            "indicator": "require",
+            "target_action": "require",
+            "target": "the service",
+            "rules": [
+                {
+                    "type": "IDENTITY/NAMING",
+                    "description": "including the kernel name ( os.uname()[2 ] ) and a boolean indicator of Docker containerization ( os.path.exists('/.dockerenv '"
+                },
+                {
+                    "type": "BEHAVIORAL",
+                    "description": "Furthermore"
+                }
+            ],
+            "source": "Furthermore, the /ver GET endpoint requires the service to expose version information, author details, a build timestamp, and crucial environmental data, including the kernel name (os.uname()[2]) and a boolean indicator of Docker containerization (os.path.exists('/.dockerenv'))."
+        },
+        {
+            "id": "REQ_04",
+            "actor": "The root path ( / )",
+            "priority": "HARD_REQUIREMENT",
+            "scope": "DIRECTORY/MODULE",
+            "indicator": "must",
+            "target_action": "serve",
+            "target": "a simple HTML page displaying the author 's ASCII art signature and version details",
+            "rules": [
+                {
+                    "type": "BEHAVIORAL",
+                    "description": "acting as a quick confirmation that the service is running correctly"
+                },
+                {
+                    "type": "LOCATION/PATH",
+                    "description": "root path"
+                }
+            ],
+            "source": "The root path (/) must serve a simple HTML page displaying the author's ASCII art signature and version details, acting as a quick confirmation that the service is running correctly."
+        },
+        {
+            "id": "REQ_05",
+            "actor": "This event",
+            "priority": "HARD_REQUIREMENT",
+            "scope": "CLASS/COMPONENT",
+            "indicator": "must",
+            "target_action": "record",
+            "target": "the specific host / kernel that served the request",
+            "rules": [
+                {
+                    "type": "BEHAVIORAL",
+                    "description": "providing the necessary audit trail for tracing requests across a distributed system"
+                },
+                {
+                    "type": "BEHAVIORAL",
+                    "description": "explicitly"
+                }
+            ],
+            "source": "This event must explicitly record the specific host/kernel that served the request, providing the necessary audit trail for tracing requests across a distributed system."
+        },
+        {
+            "id": "REQ_06",
+            "actor": "This API",
+            "priority": "HARD_REQUIREMENT",
+            "scope": "FILE",
+            "indicator": "need",
+            "target_action": "need",
+            "target": "to be using an embedding_processing.py file where another developer will put the processing engine of this service",
+            "rules": [
+                {
+                    "type": "BEHAVIORAL",
+                    "description": "of this service"
+                },
+                {
+                    "type": "LOCATION/PATH",
+                    "description": ".py file"
+                }
+            ],
+            "source": "This API needs to be using an embedding_processing.py file where another developer will put the processing engine of this service."
+        },
+        {
+            "id": "REQ_07",
+            "actor": "we",
+            "priority": "CAPABILITY",
+            "scope": "CLASS/COMPONENT",
+            "indicator": "could",
+            "target_action": "have",
+            "target": "a shell scaffolding of / a class set",
+            "rules": [
+                {
+                    "type": "BEHAVIORAL",
+                    "description": "so he can do his part but match the overall service structure"
+                },
+                {
+                    "type": "BEHAVIORAL",
+                    "description": "Perhaps"
+                }
+            ],
+            "source": "Perhaps we could have a shell scaffolding of a class set so he can do his part but match the overall service structure."
+        },
+        {
+            "id": "REQ_08",
+            "actor": "he",
+            "priority": "CAPABILITY",
+            "scope": "CLASS/COMPONENT",
+            "indicator": "can",
+            "target_action": "do",
+            "target": "his part",
+            "rules": [
+                {
+                    "type": "BEHAVIORAL",
+                    "description": "so he can do his part but match the overall service structure"
+                },
+                {
+                    "type": "BEHAVIORAL",
+                    "description": "Perhaps"
+                }
+            ],
+            "source": "Perhaps we could have a shell scaffolding of a class set so he can do his part but match the overall service structure."
+        }
+    ]
+}

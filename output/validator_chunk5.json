@@ -1,0 +1,56 @@
+{
+    "requirements": [
+        {
+            "id": "REQ_01",
+            "actor": "We",
+            "priority": "HARD_REQUIREMENT",
+            "scope": "FILE",
+            "indicator": "need",
+            "target_action": "need",
+            "target": "something robust , boringly reliable , and",
+            "rules": [
+                {
+                    "type": "BEHAVIORAL",
+                    "description": "with the Python / FastAPI / Docker pattern"
+                },
+                {
+                    "type": "BEHAVIORAL",
+                    "description": "of the platform"
+                },
+                {
+                    "type": "BEHAVIORAL",
+                    "description": "completely"
+                },
+                {
+                    "type": "BEHAVIORAL",
+                    "description": "boringly"
+                },
+                {
+                    "type": "BEHAVIORAL",
+                    "description": "already"
+                }
+            ],
+            "source": "We need something robust, boringly reliable, and completely in line with the Python/FastAPI/Docker pattern the rest of the platform already follows."
+        },
+        {
+            "id": "REQ_02",
+            "actor": "you",
+            "priority": "CAPABILITY",
+            "scope": "CLASS/COMPONENT",
+            "indicator": "can",
+            "target_action": "deliver",
+            "target": "that",
+            "rules": [
+                {
+                    "type": "BEHAVIORAL",
+                    "description": "If you can deliver that"
+                },
+                {
+                    "type": "BEHAVIORAL",
+                    "description": "almost"
+                }
+            ],
+            "source": "If you can deliver that, we'll be able to drop it into production next sprint with almost zero friction."
+        }
+    ]
+}

@@ -1,0 +1,87 @@
+{
+    "requirements": [
+        {
+            "id": "REQ_01",
+            "actor": "rollout completed for Class 76 fleet , then Class 74 & 75 after positive results but",
+            "priority": "HARD_REQUIREMENT",
+            "scope": "CLASS/COMPONENT",
+            "indicator": "require",
+            "target_action": "require",
+            "target": "Testing started on train 76 - 07 with manual redirect set / further work for Nomad Connect \n\n Ken",
+            "rules": [
+                {
+                    "type": "BEHAVIORAL",
+                    "description": "to have default redirect of dnsmasq set to 62.2.130.53"
+                },
+                {
+                    "type": "BEHAVIORAL",
+                    "description": "for Nomad Connect \n\n Ken"
+                },
+                {
+                    "type": "BEHAVIORAL",
+                    "description": "after positive results"
+                },
+                {
+                    "type": "BEHAVIORAL",
+                    "description": "Class 74 & 75"
+                },
+                {
+                    "type": "BEHAVIORAL",
+                    "description": "previously"
+                },
+                {
+                    "type": "BEHAVIORAL",
+                    "description": "for V4"
+                },
+                {
+                    "type": "BEHAVIORAL",
+                    "description": "- 07"
+                },
+                {
+                    "type": "BEHAVIORAL",
+                    "description": "only"
+                }
+            ],
+            "source": "Testing started on train 76-07 with manual redirect set; rollout completed for Class 76 fleet, then Class 74 & 75 after positive results but this requires further work for Nomad Connect\n\nKen has previously created a new PROJECT.conf with the sole change to have default redirect of dnsmasq set to 62.2.130.53 (this was for V4 only)"
+        },
+        {
+            "id": "REQ_02",
+            "actor": "We",
+            "priority": "HARD_REQUIREMENT",
+            "scope": "CLASS/COMPONENT",
+            "indicator": "require",
+            "target_action": "require",
+            "target": "the same / similar diagnosis for Nomad Connect \n\n \n\n \n\n / Here is the original information provided by Stadler : \n\n Recently we have had issues on our PIS system and while investigating we noticed some wierd IP addresses and names",
+            "rules": [
+                {
+                    "type": "BEHAVIORAL",
+                    "description": "while investigating"
+                },
+                {
+                    "type": "BEHAVIORAL",
+                    "description": "for Nomad Connect"
+                },
+                {
+                    "type": "BEHAVIORAL",
+                    "description": "on our PIS system"
+                },
+                {
+                    "type": "BEHAVIORAL",
+                    "description": "Recently"
+                }
+            ],
+            "source": "We now require the same/similar diagnosis for Nomad Connect\n\n \n\n \n\nHere is the original information provided by Stadler:\n\nRecently we have had issues on our PIS system and while investigating we noticed some wierd IP addresses and names."
+        },
+        {
+            "id": "REQ_03",
+            "actor": "what",
+            "priority": "CAPABILITY",
+            "scope": "CLASS/COMPONENT",
+            "indicator": "could",
+            "target_action": "cause",
+            "target": "this or / what it means that these IP adresses are \" wrong",
+            "rules": [],
+            "source": "I don't know what could cause this or what it means that these IP adresses are \"wrong\"."
+        }
+    ]
+}

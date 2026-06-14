@@ -1,0 +1,20 @@
+{
+    "requirements": [
+        {
+            "id": "REQ_01",
+            "actor": "it",
+            "priority": "CAPABILITY",
+            "scope": "CLASS/COMPONENT",
+            "indicator": "can",
+            "target_action": "return",
+            "target": "the whole new version",
+            "rules": [
+                {
+                    "type": "BEHAVIORAL",
+                    "description": "so the downstream services know precisely where the change occurred , \n - if the page was heavily rewritten ( more than half the content changed ) it can just return the whole new version"
+                }
+            ],
+            "source": "so the downstream services know precisely where the change occurred,\n- if the page was heavily rewritten (more than half the content changed) it can just return the whole new version \u2013 we don't want to over-engineer the diff logic."
+        }
+    ]
+}
